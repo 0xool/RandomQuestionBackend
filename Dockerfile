@@ -6,7 +6,7 @@ WORKDIR /the/workdir/path
 
 COPY package.json /usr/src/app/
 
-RUN npm install
+RUN yarn start
 
 COPY . /usr/src/app
 
