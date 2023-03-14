@@ -10,9 +10,6 @@ RUN npm install
 
 COPY . .
 
-# Install MySQL
-RUN apt-get install -y mysql-server default-mysql-client
-
 # Expose MySQL port
 EXPOSE 3000 3306 3307
 
