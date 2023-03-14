@@ -10,6 +10,12 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+# Install MySQL
+RUN apt-get update && \
+    apt-get install -y mysql-server mysql-client
 
-CMD [ "node", "server.js" ]
+# Expose MySQL port
+EXPOSE 3000 3306
+
+# Start MySQL service
+CMD service mysql start && node server.js
