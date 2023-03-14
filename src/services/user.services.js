@@ -13,10 +13,8 @@ export async function userExist(user){
       }
 
       if (!isMatch) {
-        console.log('wtf')
         return { message: 'Invalid email or password' };
       }
-      console.log('wtf2')
       return { message: 'Logged in successfully' , id: result[0].id};
     });
   }

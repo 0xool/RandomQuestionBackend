@@ -10,7 +10,7 @@ export default function database() {
         user: env.DB_USER,
         password: env.DB_PASSWORD,
         database: env.DB_NAME || 'Therapist_DB',
-        // port: env.DB_PORT || 3306,
+         port: env.DB_PORT || 3306,
         ssl: false
     }
 }
