@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   mysqldb:
+    platform: linux/x86_64
     image: mysql:5.7
     restart: unless-stopped
     env_file: ./.env
@@ -15,11 +16,11 @@ services:
   app:
     depends_on:
       - mysqldb
-    build: ./bezkoder-app
-    restart: unless-stopped
+    build: ./
+    restart: unless-stopped        
     env_file: ./.env
     ports:
-      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - 3000:3000
     environment:
       - DB_HOST=mysqldb
       - DB_USER=$DB_USER

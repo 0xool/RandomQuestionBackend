@@ -1,24 +1,17 @@
 FROM node:latest
 
-RUN mkdir -p /usr/src/app
+#RUN mkdir -p /therapist-app
 
-WORKDIR /usr/src/app
+WORKDIR /therapist-app
 
 COPY package*.json ./
 
 RUN npm install
 
-COPY . .
-
-# Install MySQL
-RUN apt-get update && apt-get install -y mysql-server
-
-# Create a database
-RUN service mysql start && \
-    mysql -u root -e "CREATE DATABASE mydatabase;"
+COPY . /therapist-app
 
 # Expose MySQL port
-EXPOSE 3000 3306 3307
+EXPOSE 3000 3306 3307 8000
 
 # Start MySQL service
-CMD service mysql start && node server.js
+CMD node src/server.js
